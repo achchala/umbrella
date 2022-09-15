@@ -17,10 +17,12 @@ let weather = {
         const { icon, description } = data.weather[0];
         const { temp, humidity } = data.main;
         const { speed } = data.wind;
+    //querySelector() method returns the first Element within the document that matches the specified selector, or group of selectors
     document.querySelector(".city").innerText = "Weather in " + name;
     document.querySelector(".icon").src =
       "https://openweathermap.org/img/wn/" + icon + ".png";
     document.querySelector(".description").innerText = description;
+    const desc = document.querySelector(".description").innerText = description;
     document.querySelector(".temp").innerText = temp + "°C";
     document.querySelector(".humidity").innerText =
       "Humidity: " + humidity + "%";
@@ -28,11 +30,20 @@ let weather = {
       "Wind speed: " + speed + " km/h";
     document.querySelector(".weather").classList.remove("loading");
         //removes loading if it's there
-    },
+    if (desc === "shower rain" || "rain" || "thunderstorm" || "light rain") {
+      document.getElementById("umbrellaQuestion").innerHTML = "You need an umbrella";
+
+    } else {
+      document.getElementById("umbrellaQuestion").innerHTML = "You do not need an umbrella";
+    } 
+
+    }, 
+
     search: function () {
         this.fetchWeather(document.querySelector(".search-bar").value);
     },
 };
+
     
 document.querySelector(".search button").addEventListener("click", function () {
     weather.search();
