@@ -1,6 +1,6 @@
 # umbrella
 
-Javascript weather application that lets the user know whether they'd likely need an umbrella depending on their location's current climate conditions
+JavaScript weather application that lets the user know whether they need an umbrella depending on the climate conditions
 
 ![Screenshot Image](screenCap.png)
 ### Next Steps
